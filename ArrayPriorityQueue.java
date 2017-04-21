@@ -1,12 +1,5 @@
-/*
-  Team Name: 
-  Team Members: Yu Qi Wu, Ri Hui Zheng, Jenny Han
-  APCS2 pd3
-  HW32 -- Getting Past the Velvet Rope
-  2017-04-20
- */
-
 import java.util.ArrayList;
+
 
 public class ArrayPriorityQueue implements PriorityQueue{
     
@@ -18,15 +11,16 @@ public class ArrayPriorityQueue implements PriorityQueue{
 	_size = 0;
     }
 
-    public void add(int var){
+    public void add(Ticket var){
 	if (_size == 0){
 	    _data.add(var);
 	    _size++;
 	}
 	else{
+	    int priority = var.getVIP();
 	    int index = 0;
 	    for (int count = 0; count < _size; count++){
-		if (var < _data.get(count)){
+		if (priority >= _data.get(count).getVIP()){
 		    _data.add(count, var);
 		    _size++;
 		    return;
@@ -39,13 +33,13 @@ public class ArrayPriorityQueue implements PriorityQueue{
 	return _size == 0;
     }
 
-    public T peekMin(){
-	return _data.get(0);
+    public Ticket peekMin(){
+	return _data.get(_size-1);
     }
 
-    public T removeMin(){
-	T temp = peekMin();
-        _data.remove(0);
+    public Ticket removeMin(){
+	Ticket temp = peekMin();
+        _data.remove(_size -1);
 	_size--;
 	return temp;
     }
@@ -56,8 +50,9 @@ public class ArrayPriorityQueue implements PriorityQueue{
     
     public String toString(){
 	String retStr = "";
-	for (T i:_data){
-	    retStr += i + " , ";
+	for (Ticket i:_data){
+	    String name = i.getName();
+	    retStr += name + " , ";
 	}
 	return retStr;
     }
@@ -65,6 +60,11 @@ public class ArrayPriorityQueue implements PriorityQueue{
     public static void main (String[] args){
 
 	ArrayPriorityQueue numLine = new ArrayPriorityQueue();
+	Ticket dumbPersonA = new Ticket(1, 0, "Bob", "My screen is black");
+	Ticket dumbPersonB = new Ticket(12, 1, "Dob", "My screen is black");
+	Ticket dumbPersonC = new Ticket(13, 5, "Fob", "My screen is black");
+	Ticket dumbPersonD = new Ticket(14, 2, "Gob", "My screen is black");
+	Ticket dumbPersonE = new Ticket(15, 0, "Pob", "My screen is black");
 
 	//empty queue
 	sop(numLine);
@@ -77,13 +77,19 @@ public class ArrayPriorityQueue implements PriorityQueue{
 	    numLine.add(newNum);
 	}
 	*/
-	
+	/*
 	numLine.add(1);
 	numLine.add(2);
 	numLine.add(3);
 	numLine.add(2);
 	numLine.add(1);
-	
+	*/
+	numLine.add(dumbPersonA);
+	numLine.add(dumbPersonB);
+	numLine.add(dumbPersonC);
+	numLine.add(dumbPersonD);
+	numLine.add(dumbPersonE);
+
 	//populated queue
 	
 	sop(numLine);

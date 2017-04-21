@@ -1,4 +1,6 @@
-public class Ticket{
+import java.lang.Comparable
+
+public class Ticket {
 
     private int ID;
     private boolean _solved;
@@ -7,7 +9,7 @@ public class Ticket{
     private String problem;
     private String solution;
 
-    public void Ticket (int UID, int priority, String UN, String desc){
+    public Ticket (int UID, int priority, String UN, String desc){
 	ID = UID;
 	_solved = false;
 	_priority = priority;
@@ -28,7 +30,16 @@ public class Ticket{
 	return _priority;
     }
 
-    public int getName(){
+    public String getName(){
 	return name;
     }
+
+    public int compareTo(Ticket t)
+	
+    }
+
+    public String toString(){
+	return ID + ":" + name;
+    }
+
 }//end class
