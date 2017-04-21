@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class ArrayPriorityQueue implements PriorityQueue{
+public class ArrayPriorityQueue<T> implements PriorityQueue{
     
     private ArrayList<T> _data;
     private int _size;
@@ -11,16 +11,15 @@ public class ArrayPriorityQueue implements PriorityQueue{
 	_size = 0;
     }
 
-    public void add(Ticket var){
+    public void add(T var){
 	if (_size == 0){
 	    _data.add(var);
 	    _size++;
 	}
 	else{
-	    int priority = var.getVIP();
 	    int index = 0;
 	    for (int count = 0; count < _size; count++){
-		if (priority >= _data.get(count).getVIP()){
+		if (var.compareTo(_data.get(count)) >= 0){
 		    _data.add(count, var);
 		    _size++;
 		    return;
@@ -33,11 +32,11 @@ public class ArrayPriorityQueue implements PriorityQueue{
 	return _size == 0;
     }
 
-    public Ticket peekMin(){
+    public T peekMin(){
 	return _data.get(_size-1);
     }
 
-    public Ticket removeMin(){
+    public T removeMin(){
 	Ticket temp = peekMin();
         _data.remove(_size -1);
 	_size--;
@@ -59,7 +58,7 @@ public class ArrayPriorityQueue implements PriorityQueue{
 
     public static void main (String[] args){
 
-	ArrayPriorityQueue numLine = new ArrayPriorityQueue();
+	ArrayPriorityQueue<Ticket> numLine = new ArrayPriorityQueue<Ticket>();
 	Ticket dumbPersonA = new Ticket(1, 0, "Bob", "My screen is black");
 	Ticket dumbPersonB = new Ticket(12, 1, "Dob", "My screen is black");
 	Ticket dumbPersonC = new Ticket(13, 5, "Fob", "My screen is black");

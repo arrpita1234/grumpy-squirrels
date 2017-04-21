@@ -1,4 +1,4 @@
-import java.lang.Comparable
+import java.lang.Comparable;
 
 public class Ticket {
 
@@ -34,8 +34,13 @@ public class Ticket {
 	return name;
     }
 
-    public int compareTo(Ticket t)
-	
+    public int compareTo(Ticket t){
+	if (_priority > t.getVIP())
+	    return 1;
+	else if (_priority < t.getVIP())
+	    return -1;
+	else
+	    return 0;
     }
 
     public String toString(){
