@@ -1,6 +1,4 @@
-import java.lang.Comparable;
-
-public class Ticket {
+public class Ticket implements Comparable<Ticket> {
 
     private int ID;
     private boolean _solved;

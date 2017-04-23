@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class ArrayPriorityQueue<T> implements PriorityQueue{
+public class ArrayPriorityQueue<T extends Comparable> implements PriorityQueue<T>{
     
     private ArrayList<T> _data;
     private int _size;
@@ -37,7 +37,7 @@ public class ArrayPriorityQueue<T> implements PriorityQueue{
     }
 
     public T removeMin(){
-	Ticket temp = peekMin();
+	T temp = peekMin();
         _data.remove(_size -1);
 	_size--;
 	return temp;
@@ -46,16 +46,15 @@ public class ArrayPriorityQueue<T> implements PriorityQueue{
     public static void sop(Object o){
 	System.out.println(o);
     }
-    
+
     public String toString(){
 	String retStr = "";
-	for (Ticket i:_data){
-	    String name = i.getName();
-	    retStr += name + " , ";
+	for (T item:_data){
+	    retStr += item.toString() + ", ";
 	}
 	return retStr;
     }
-
+    
     public static void main (String[] args){
 
 	ArrayPriorityQueue<Ticket> numLine = new ArrayPriorityQueue<Ticket>();
