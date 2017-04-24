@@ -12,48 +12,54 @@ public class ArrayPriorityQueue<T extends Comparable> implements PriorityQueue<T
     }
 
     public void add(T var){
-	if (_size == 0){
-	    _data.add(var);
-	    _size++;
-	}
-	else{
-	    int index = 0;
-	    for (int count = 0; count < _size; count++){
-		if (var.compareTo(_data.get(count)) >= 0){
-		    _data.add(count, var);
-		    _size++;
-		    return;
-		}
-	    }
-	}
+	   if (_size == 0){
+	       _data.add(var);
+	       _size++;
+	   }
+	   else{
+	       int index = 0;
+	       for (int count = 0; count < _size; count++){
+               if (var.compareTo(_data.get(count)) >= 0){
+		          _data.add(count, var);
+		          _size++;
+		      return;
+		      }
+	       }
+	   }
     }
 
     public boolean isEmpty(){
-	return _size == 0;
+	   return _size == 0;
     }
 
     public T peekMin(){
-	return _data.get(_size-1);
+	   return _data.get(_size-1);
     }
 
     public T removeMin(){
-	T temp = peekMin();
-        _data.remove(_size -1);
-	_size--;
-	return temp;
+	   T temp = peekMin();
+        _data.remove(_size - 1);
+	   _size--;
+	   return temp;
     }
 
     public static void sop(Object o){
-	System.out.println(o);
+	   System.out.println(o);
     }
 
     public String toString(){
-	String retStr = "";
-	for (T item:_data){
-	    retStr += item.toString() + ", ";
-	}
-	return retStr;
+	   String retStr = "";
+	   for (T item:_data){
+	       retStr += item.toString() + "\n";
+	   }
+	   return retStr;
     }
+    
+    public int size(){
+        return _size;
+    }
+    
+    
     
     public static void main (String[] args){
 	/*
