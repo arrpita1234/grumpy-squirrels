@@ -1,7 +1,7 @@
- # grumpy-squirrels
- # Members: Rihui Zheng, Eric Li, Arpita Nag
+# grumpy-squirrels
+# Members: Rihui Zheng, Eric Li, Arpita Nag
 
-#Our Help Desk:
+Our Help Desk:
 
 When you arrive at the help desk, you will be asked to identify yourself as an operator or a user, or if you want to quit.
 
