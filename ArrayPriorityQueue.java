@@ -11,6 +11,7 @@ public class ArrayPriorityQueue<T extends Comparable> implements PriorityQueue<T
 	_size = 0;
     }
 
+    //sorts the queue based on priority as new members are added in
     public void add(T var){
 	   if (_size == 0){
 	       _data.add(var);
@@ -25,6 +26,9 @@ public class ArrayPriorityQueue<T extends Comparable> implements PriorityQueue<T
 		      return;
 		      }
 	       }
+	       //if new member is highest priority in queue
+	       _data.add(_size, var);
+	       _size++;
 	   }
     }
 
